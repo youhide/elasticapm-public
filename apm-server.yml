@@ -38,7 +38,8 @@ setup.template.settings:
 # These settings control loading the sample dashboards to the Kibana index. Loading
 # the dashboards is disabled by default and can be enabled either by setting the
 # options here, or by using the `-setup` CLI flag or the `setup` command.
-#setup.dashboards.enabled: false
+#setup.dashboards.enabled: true
+#setup.dashboards.retry.enabled: true
 
 #============================== Kibana =====================================
 
@@ -50,7 +51,7 @@ setup.kibana:
   # Scheme and port can be left out and will be set to the default (http and 5601)
   # In case you specify and additional path, the scheme is required: http://localhost:5601/path
   # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601
-  #host: "localhost:5601"
+  host: "http://kibana:5601"
 
 #================================ Outputs =====================================
 
@@ -59,7 +60,7 @@ setup.kibana:
 #-------------------------- Elasticsearch output ------------------------------
 output.elasticsearch:
   # Array of hosts to connect to.
-  hosts: ["elasticsearch:9200"]
+  hosts: ["http://elasticsearch:9200"]
 
   # By using the configuration below, apm documents are stored to separate indices,
   # depending on their `processor.event`:
